@@ -10,10 +10,6 @@ function Layout({ children }) {
     dispatch,
   } = Usemycontext();
 
-  useEffect(() => {
-    localStorage.setItem("localcart", JSON.stringify(cart));
-  }, [cart]);
-
   return (
     <div>
       <Navbar />

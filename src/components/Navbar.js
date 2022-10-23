@@ -6,12 +6,6 @@ import { Usemycontext } from "./context/Context";
 function Navbar() {
   const router = useRouter();
   const { dispatch, store } = Usemycontext();
-  // const [localcart, setlocalcart] = useState([]);
-  // useEffect(() => {
-  //   setlocalcart(JSON.parse(localStorage.getItem("localcart")));
-  // }, []);
-  // console.log({ localcart });
-
   const links = [
     {
       name: "home",
