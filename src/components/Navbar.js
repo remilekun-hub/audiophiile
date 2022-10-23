@@ -31,11 +31,21 @@ function Navbar() {
 
   return (
     <header
-      className={`w-full  h-full sticky top-0 z-[30] ${
+      className={`w-full  h-full sticky top-0 z-[30] px-5 xs:px-8 md:px-11 lg:px-5 ${
         router.pathname === "/" ? "bg-black/[0.9]" : "bg-black"
       }`}
     >
-      <nav className=" mx-auto px-5 xs:px-8 md:px-11 lg:px-5 max-w-screen-lg flex justify-between py-6">
+      <nav
+        className={`mx-auto
+        max-w-screen-lg
+        flex
+        justify-between
+        py-6
+      ${
+        router.pathname === "/" &&
+        "border-2 border-t-0 border-solid border-x-0 border-gray/50"
+      }`}
+      >
         <div
           className="border-none cursor-pointer lg:hidden"
           role="menu button"
@@ -82,9 +92,6 @@ function Navbar() {
           )}
         </div>
       </nav>
-      {/* {router.pathname === "/" && (
-        <hr className="max-w-screen-lg mx-auto w- bg-gray/90" />
-      )} */}
     </header>
   );
 }
