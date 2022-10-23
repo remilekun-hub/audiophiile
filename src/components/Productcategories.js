@@ -5,7 +5,7 @@ import { Useviewwidth, useviewwidth } from "../../lib/useviewwidth";
 function Productcategories() {
   const Viewport = Useviewwidth();
   return (
-    <section className="px-5 space-y-4 md:space-y-6 mx-auto max-w-screen-lg pt-8 pb-16">
+    <section className="px-5 xs:px-8 md:px-11 lg:px-5 space-y-5 xs:space-y-7  md:space-y-8 mx-auto max-w-screen-lg pt-8 pb-16">
       <div className="text-center bg-orange py-11 space-y-6 rounded-md bg-[url('../public/assets/home/desktop/pattern-circles.svg')] bg-no-repeat bg-top bg-contain">
         <img
           src="/assets/home/mobile/image-speaker-zx9.png"

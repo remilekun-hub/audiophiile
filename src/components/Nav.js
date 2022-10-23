@@ -3,12 +3,12 @@ import Link from "next/link";
 
 function Nav() {
   return (
-    <div className="mx-auto px-5 max-w-screen-lg pt-24 md:pt-28 pb-14 md:pb-24 flex flex-col md:flex-row space-y-14 md:space-y-0 md:space-x-3">
+    <div className="mx-auto px-5 xs:px-8 md:px-11 lg:px-5  max-w-screen-lg  pt-24 md:pt-28 pb-14 md:pb-24 flex flex-col md:flex-row space-y-14 md:space-y-0 md:space-x-3">
       <figure className="bg-gray snav flex flex-col items-center rounded-md pb-5 cursor-pointer md:basis-1/3 snav">
         <img
           src="/assets/shared/desktop/imageheadphones.png"
           alt="imageheadphones"
-          className="w-[120px] -mt-11"
+          className="w-[140px] -mt-11"
         />
 
         <p className="text-black font-bold tracking-wider mb-4">HEADPHONES</p>
@@ -26,7 +26,7 @@ function Nav() {
         <img
           src="/assets/shared/desktop/imagespeakers.png"
           alt="imageheadphones"
-          className="w-[120px] -mt-11"
+          className="w-[140px] -mt-11"
         />
 
         <p className="text-black font-bold tracking-wider mb-4">SPEAKERS</p>
@@ -44,7 +44,7 @@ function Nav() {
         <img
           src="/assets/shared/desktop/imageearphones.png"
           alt="imageheadphones"
-          className="w-[120px] -mt-11"
+          className="w-[140px] -mt-11"
         />
 
         <p className="text-black font-bold tracking-wider mb-4">EARPHONES</p>

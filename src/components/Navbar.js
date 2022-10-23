@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Usemycontext } from "./context/Context";
+import { Useviewwidth } from "../../lib/useviewwidth";
 
 function Navbar() {
   const router = useRouter();
   const { dispatch, store } = Usemycontext();
+  console.log(store.cart.length);
   const links = [
     {
       name: "home",
@@ -24,14 +26,16 @@ function Navbar() {
       path: "/earphones",
     },
   ];
+  const Viewdith = Useviewwidth();
+  console.log({ Viewdith });
 
   return (
     <header
-      className={`w-full px-5 h-full sticky top-0 z-[30] ${
+      className={`w-full  h-full sticky top-0 z-[30] ${
         router.pathname === "/" ? "bg-black/[0.9]" : "bg-black"
       }`}
     >
-      <nav className=" mx-auto max-w-screen-lg flex justify-between py-6">
+      <nav className=" mx-auto px-5 xs:px-8 md:px-11 lg:px-5 max-w-screen-lg flex justify-between py-6">
         <div
           className="border-none cursor-pointer lg:hidden"
           role="menu button"
