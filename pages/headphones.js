@@ -13,11 +13,11 @@ function headphones({ category }) {
 }
 
 export default headphones;
-export const getStaticProps = async (ctx) => {
-  const category = await getprodcategory("headphones");
-  return {
-    props: {
-      category,
-    },
-  };
-};
+// export const getStaticProps = async (ctx) => {
+//   const category = await getprodcategory("headphones");
+//   return {
+//     props: {
+//       category,
+//     },
+//   };
+// };
