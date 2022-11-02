@@ -13,11 +13,3 @@ function speakers({ category }) {
 
 export default speakers;
 
-export const getStaticProps = async (ctx) => {
-  const category = await getprodcategory("speakers");
-  return {
-    props: {
-      category,
-    },
-  };
-};

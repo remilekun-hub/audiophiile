@@ -2,12 +2,11 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Usemycontext } from "./context/Context";
-import { Useviewwidth } from "../../lib/useviewwidth";
 
 function Navbar() {
   const router = useRouter();
   const { dispatch, store } = Usemycontext();
-  console.log(store.cart.length);
+
   const links = [
     {
       name: "home",
@@ -26,12 +25,10 @@ function Navbar() {
       path: "/earphones",
     },
   ];
-  const Viewdith = Useviewwidth();
-  console.log({ Viewdith });
 
   return (
     <header
-      className={`w-full  h-full sticky top-0 z-[30] px-5 xs:px-8 md:px-11 lg:px-5 ${
+      className={`w-full  h-full sticky top-0 z-[30] px-5 xs:px-6 md:px-10 lg:px-5 ${
         router.pathname === "/" ? "bg-black/[0.9]" : "bg-black"
       }`}
     >
@@ -43,7 +40,7 @@ function Navbar() {
         py-6
       ${
         router.pathname === "/" &&
-        "border-2 border-t-0 border-solid border-x-0 border-gray/50"
+        "border border-t-0 border-solid border-x-0 border-gray/50"
       }`}
       >
         <div
@@ -61,12 +58,12 @@ function Navbar() {
             />
           </a>
         </Link>
-        <ul className="hidden lg:flex">
+        <ul className="hidden lg:flex lg:space-x-9">
           {links.map((link) => (
-            <li key={link.name} className="mr-8">
+            <li key={link.name}>
               <Link href={link.path}>
                 <a
-                  className={`uppercase hover:text-orange ${
+                  className={`uppercase text-xs hover:text-orange tracking-[1.5px] lg:text-sm ${
                     router.pathname === link.path ? "text-orange" : "text-white"
                   }`}
                 >
@@ -80,15 +77,14 @@ function Navbar() {
           className="cursor-pointer relative"
           onClick={() => {
             dispatch({ type: "TOGGLE_CART_MODAL" });
+            document.body.classList.add("overflow-y-hidden");
           }}
         >
           <img src="/assets/shared/desktop/cart.svg" alt="cart" />
-          {store.cart.length > 0 ? (
+          {store.cart.length > 0 && (
             <span className="bg-orange absolute h-4 w-4 rounded-full flex justify-center items-center font-bold -top-4 -right-2 text-xs text-black">
               {store.cart.length}
             </span>
-          ) : (
-            ""
           )}
         </div>
       </nav>

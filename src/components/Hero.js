@@ -32,7 +32,7 @@ function Hero() {
             XX99 MARK II <br /> HEADPHONE
           </h1>
 
-          <p className="text-gray leading-6">
+          <p className="text-gray/70 leading-6">
             Experience natural, lifelike audio and exceptional build quality
             made for the passionate music enthusiast.
           </p>

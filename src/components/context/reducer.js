@@ -15,6 +15,16 @@ export const statereducer = (state, action) => {
         ...state,
         cart: [...state.cart, action.payload],
       };
+    case "EMPTY_CART":
+      return {
+        ...state,
+        cart: [],
+      };
+    case "INCREASE_QTY":
+      return {
+        ...state,
+        cart: [...state.cart, action.payload.qty + 1],
+      };
 
     default:
       return state;
