@@ -55,10 +55,10 @@ function Footer() {
           </ul>
         </div>
         <p className="text-gray/70 md:mb-14 lg:max-w-lg lg:mt-6">
-          Audiophile is an all in one stop to fufill your audio needs. We're a
-          small team of music lovers and sound specialists who are devoted to
-          helping you get the most out of personal audio. Come and visit our
-          demo facility - we're open 7 days a week.
+          Audiophile is an all in one stop to fufill your audio needs.
+          We`&apos`re a small team of music lovers and sound specialists who are
+          devoted to helping you get the most out of personal audio. Come and
+          visit our demo facility, we're open 7 days a week.
         </p>
         <p className="text-gray/70 text-sm mt-6 md:mb-4">
           {" "}
