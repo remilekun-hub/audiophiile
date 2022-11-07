@@ -30,7 +30,7 @@ export const statereducer = (state, action) => {
         ...state,
         cart: state.cart.filter((c) =>
           c.id === action.payload.id
-            ? (c.quantity = c.quantity + 0.5)
+            ? (c.quantity = c.quantity + 1)
             : c.quantity
         ),
       };
@@ -39,7 +39,7 @@ export const statereducer = (state, action) => {
         ...state,
         cart: state.cart.filter((c) =>
           c.id === action.payload.id
-            ? (c.quantity = c.quantity - 0.5)
+            ? (c.quantity = c.quantity - 1)
             : c.quantity
         ),
       };
