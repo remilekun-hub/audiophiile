@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useRef, useState } from "react";
+import { usestripe } from "../lib/usestripecheckout";
 import { Usemycontext } from "../src/components/context/Context";
 
 function Checkout() {
@@ -137,13 +138,7 @@ function Checkout() {
 
   const handleformsubmit = (e) => {
     e.preventDefault();
-    checkname();
-    isvalid();
-    checkphone();
-    checkotherinput();
-    if (validate) {
-      console.log("form submitted successfully");
-    }
+    usestripe();
   };
 
   return (

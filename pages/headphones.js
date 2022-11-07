@@ -10,7 +10,7 @@ function headphones() {
   return (
     <>
       <Banner text="HEADPHONES" />
-      <div className="px-5 py-1 xs:px-6 md:px-10 lg:px-5">
+      <div className="px-5 py-1 xs:px-6 md:px-10 lg:px-5 pb-5 md:pb-7">
         <div className="max-w-screen-lg mx-auto pt-6 pb-7 space-y-5 lg:pb-20">
           <div className="lg:flex py-4 md:py-8 lg:py-10">
             <div className="lg:basis-[47.5%]">

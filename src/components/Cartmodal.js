@@ -35,33 +35,86 @@ function Cartmodal() {
           <div className="max-h-48 md:h-auto overflow-y-auto">
             {cart.length > 0 &&
               cart.map((x) => (
-                <div className="mb-1 flex" key={x.id}>
+                <div className="mb-3 flex" key={x.id}>
                   <div>
-                    <img
+                    {/* <img
                       src={x.image.mobile}
                       alt={x.cartname}
                       className="w-12 h-12 rounded-md"
-                    />
+                    /> */}
                   </div>
                   <div className="pl-3 w-full flex justify-between items-center">
                     <div></div>
-                    <div>btn here</div>
+                    <div className="flex bg-gray  justify-center items-center p-2">
+                      {x.quantity === 1 ? (
+                        <span
+                          className="font-bold text-black/40 cursor-pointer mt-1"
+                          aria-roledescription="button to remove item from cart"
+                          role="remove button"
+                          onClick={() =>
+                            dispatch({
+                              type: "REMOVE_FROM_CART",
+                              payload: { id: x.id },
+                            })
+                          }
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            className="w-4 h-4 text-black/40"
+                          >
+                            <path d="M5 20a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8h2V6h-4V4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2H3v2h2zM9 4h6v2H9zM8 8h9v12H7V8z"></path>
+                            <path d="M9 10h2v8H9zm4 0h2v8h-2z"></path>
+                          </svg>
+                        </span>
+                      ) : (
+                        <span
+                          className="font-bold text-black/40 cursor-pointer"
+                          aria-roledescription="button to decrease item quantity"
+                          role="decrease quantity button"
+                          onClick={() =>
+                            dispatch({
+                              type: "DECREASE_QTY",
+                              payload: { id: x.id },
+                            })
+                          }
+                        >
+                          -
+                        </span>
+                      )}
+                      <span className="font-bold px-4">{x.quantity}</span>
+                      <span
+                        className="font-bold text-black/40 cursor-pointer"
+                        aria-roledescription="button to increase item quantity"
+                        role="increase quantity button"
+                        onClick={() =>
+                          dispatch({
+                            type: "INCREASE_QTY",
+                            payload: { id: x.id },
+                          })
+                        }
+                      >
+                        +
+                      </span>
+                    </div>
                   </div>
                 </div>
               ))}
           </div>
           <div>
             {cart.length > 0 ? (
-              <button
+              <input
+                type="button"
+                value="CHECKOUT"
                 className={`bg-orange font-bold p-3 w-full text-white outline-none border-none cursor-pointer disabled:bg-black`}
                 onClick={() => {
                   router.push("/checkout");
                   dispatch({ type: "TOGGLE_CART_MODAL" });
                   document.body.classList.remove("overflow-y-hidden");
                 }}
-              >
-                CHECKOUT
-              </button>
+              />
             ) : null}
           </div>
         </div>
