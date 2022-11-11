@@ -16,6 +16,7 @@ function Checkout() {
   const {
     store: { cart },
   } = Usemycontext();
+  console.log({ cart });
 
   useEffect(() => {
     if (cart.length === 0) {
@@ -307,7 +308,11 @@ function Checkout() {
               <div className="space-y-2">
                 <div className="flex justify-between">
                   <span className="font-semibold text-black/60">TOTAL</span>{" "}
-                  <span className="font-medium lg:font-bold">5000</span>
+                  <span className="font-semibold text-[16px] font-medium">
+                    {`$ ${cart
+                      .reduce((acc, cur) => acc + cur.price, 0)
+                      .toLocaleString("en-US")}`}
+                  </span>
                 </div>
                 <div className="flex justify-between">
                   <span className="font-semibold text-black/60">SHIPPING</span>{" "}
@@ -335,11 +340,6 @@ function Checkout() {
               >
                 continue and pay
               </button>
-              {/* <input
-                type="submit"
-                value={"CONTINUE & PAY"}
-                className="bg-orange p-3 tracking-tighter-[1px] cursor-pointer w-full text-white font-medium lg:font-bold"
-              /> */}
             </div>
           </div>
         </div>

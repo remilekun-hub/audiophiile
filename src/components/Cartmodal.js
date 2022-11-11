@@ -20,31 +20,40 @@ function Cartmodal() {
     >
       <div className="max-w-screen-lg mx-auto lg:relative">
         <div
-          className="rounded-md p-4 xs:p-5 relative top-[100px] bg-white w-full xs:w-[290px] mx-auto md:absolute md:top-[100px] md:right-10 md:w-[350px] lg:right-0"
+          className="rounded-md p-4 xs:p-5 relative top-[100px] bg-white w-full xs:w-[300px] mx-auto md:absolute md:top-[100px] md:right-10 md:w-[350px] lg:right-0"
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="flex justify-between">
+          <div className="flex justify-between border border-solid border-black/40 pb-2 border-x-0 border-t-0 border-b-1">
             <span className="font-bold">Cart ({cart.length})</span>{" "}
-            <span
-              onClick={() => dispatch({ type: "EMPTY_CART" })}
-              className="cursor-pointer"
-            >
-              Remove all
-            </span>
+            {cart.length > 0 ? (
+              <span
+                onClick={() => dispatch({ type: "EMPTY_CART" })}
+                className="cursor-pointer"
+              >
+                Remove all
+              </span>
+            ) : null}
           </div>
-          <div className="max-h-48 md:h-auto overflow-y-auto">
-            {cart.length > 0 &&
+          <div className="max-h-48 md:h-auto overflow-y-auto pt-3">
+            {cart.length > 0 ? (
               cart.map((x) => (
                 <div className="mb-3 flex" key={x.id}>
                   <div>
-                    {/* <img
+                    <img
                       src={x.image.mobile}
                       alt={x.cartname}
                       className="w-12 h-12 rounded-md"
-                    /> */}
+                    />
                   </div>
-                  <div className="pl-3 w-full flex justify-between items-center">
-                    <div></div>
+                  <div className="pl-2 w-full flex justify-between items-center">
+                    <div>
+                      <span className="flex flex-1 text-black font-bold">
+                        {x.cartname}
+                      </span>
+                      <span className="text-black/40 text-sm font-bold">
+                        ${x.price.toLocaleString("en-US")}
+                      </span>
+                    </div>
                     <div className="flex bg-gray  justify-center items-center p-2">
                       {x.quantity === 1 ? (
                         <span
@@ -101,14 +110,17 @@ function Cartmodal() {
                     </div>
                   </div>
                 </div>
-              ))}
+              ))
+            ) : (
+              <p className="text-center pt-3">your cart is empty</p>
+            )}
           </div>
           <div>
             {cart.length > 0 ? (
               <input
                 type="button"
                 value="CHECKOUT"
-                className={`bg-orange font-bold p-3 w-full text-white outline-none border-none cursor-pointer disabled:bg-black`}
+                className={`bg-orange font-bold p-3 w-full text-white outline-none border-none cursor-pointer tracking-[1px] disabled:bg-black`}
                 onClick={() => {
                   router.push("/checkout");
                   dispatch({ type: "TOGGLE_CART_MODAL" });

@@ -22,7 +22,7 @@ function Productcategories() {
               truly remarkable sound.
             </p>
             <Link href="">
-              <a className="bg-black text-sm hover:bg-black/10 text-white py-3 px-6 tracking-[2px]">
+              <a className="bg-black text-sm hover:bg-black/10 text-white py-3 px-5 tracking-[1px] font-semibold md:px-6 lg:px-8">
                 SEE PRODUCT
               </a>
             </Link>
@@ -33,7 +33,7 @@ function Productcategories() {
             ZX7 SPEAKER
           </h3>
           <Link href="">
-            <a className="bg-transparent border text-sm hover:bg-black/10 text-black border-black border-solid font-bold py-3 px-5 tracking-wide md:py-3 md:px-6">
+            <a className="bg-transparent border text-sm hover:bg-black/10 text-black border-black border-solid font-semibold py-3 px-5 tracking-[1px]  md:px-6 md:px-6 lg:px-8">
               SEE PRODUCT
             </a>
           </Link>
@@ -50,7 +50,7 @@ function Productcategories() {
               YX1 EARPHONES
             </h3>
             <Link href="">
-              <a className="bg-transparent  text-sm border text-black hover:bg-black/10 border-black border-solid font-bold py-3 px-5 tracking-wide md:py-3 md:px-6">
+              <a className="bg-transparent  text-sm border text-black hover:bg-black/10 border-black border-solid font-semibold py-3 px-5 tracking-[1px] md:px-6 lg:px-8">
                 SEE PRODUCT
               </a>
             </Link>

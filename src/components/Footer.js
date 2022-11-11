@@ -41,7 +41,7 @@ function Footer() {
               <li key={link.name} className="mb-5">
                 <Link href={link.path}>
                   <a
-                    className={`uppercase text-xs hover:text-orange tracking-[1.5px] lg:text-sm ${
+                    className={`uppercase text-[13px] hover:text-orange tracking-[1.5px] lg:text-sm ${
                       router.pathname === link.path
                         ? "text-orange"
                         : "text-white"

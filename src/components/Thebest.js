@@ -4,7 +4,7 @@ import { Useviewwidth } from "../../lib/useviewwidth";
 function Thebest() {
   const Viewport = Useviewwidth();
   return (
-    <section className="px-5 pb-5 md:pb-7 lg:pb-24 pt-2.5 md:pt-7 lg:pt-8 xs:px-6 md:px-10 lg:px-5">
+    <section className="px-5 pb-16 md:pb-18 lg:pb-24 pt-2.5 md:pt-7 lg:pt-8 xs:px-6 md:px-10 lg:px-5">
       <div className="mx-auto  max-w-screen-lg flex flex-col gap-y-7 lg:flex-row">
         <div className="text-center basis-[52%] lg:text-left lg:pr-24 my-auto">
           <h2 className="text-[26px] md:text-4xl md:max-w-[500px] md:mx-auto mb-4 lg:text-4xl ">
