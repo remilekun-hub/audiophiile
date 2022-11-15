@@ -4,7 +4,16 @@ import { usestripe } from "../lib/usestripecheckout";
 import { Usemycontext } from "../src/components/context/Context";
 
 function Checkout() {
+  const {
+    store: { cart },
+  } = Usemycontext();
+
+  const total = cart.reduce((acc, cur) => acc + cur.price * cur.quantity, 0);
+  const vat = (20 / 100) * total;
+  const [shipping] = useState(cart.length > 0 ? 50 : 0);
+
   const [Name, SetName] = useState("");
+
   const [Email, SetEmail] = useState("");
   const [Phoneno, SetPhoneno] = useState("");
   const [Address, SetAddress] = useState("");
@@ -13,16 +22,8 @@ function Checkout() {
   const [Country, SetCountry] = useState("");
   const [validate, setvalidate] = useState(false);
   const router = useRouter();
-  const {
-    store: { cart },
-  } = Usemycontext();
-  console.log({ cart });
 
-  useEffect(() => {
-    if (cart.length === 0) {
-      router.push("/");
-    }
-  }, []);
+  console.log({ cart });
 
   const checkname = () => {
     const nameEl = document.getElementById("name");
@@ -145,14 +146,19 @@ function Checkout() {
   return (
     <section className="px-5 xs:px-6 md:px-10 lg:px-5">
       <div className="mx-auto max-w-screen-lg py-10 bg-lightgray">
-        <div className="pb-6 lg:pb-8">Go Back</div>
+        <div
+          className="pb-6 lg:pb-8 cursor-pointer"
+          onClick={() => router.back()}
+        >
+          Go Back
+        </div>
 
         <div className="space-y-5 sm:gap-5 sm:space-y-0 sm:grid sm:grid-cols-1 lg:grid-cols-3">
           <form
             className="lg:col-span-2 bg-white rounded-md px-5 lg:px-11 pt-5 pb-3"
             onSubmit={handleformsubmit}
           >
-            <h3 className="pb-6 text-3xl">CHECKOUT</h3>
+            <h3 className="pb-6 text-3xl lg:text-4xl">CHECKOUT</h3>
             <div>
               <div className="lg:pb-12">
                 <p className="text-lightorange font-medium mb-4 lg:font-bold">
@@ -303,33 +309,55 @@ function Checkout() {
             </div>
           </form>
           <div className="bg-white rounded-md h-min w-full p-4 lg:px-7 lg:py-6 font-bold">
-            SUMMARY
+            <h3 className="text-[19px] pb-6">SUMMARY</h3>
+            <div className="mb-5">
+              {cart.length > 0
+                ? cart.map((c) => (
+                    <div className="mb-3 flex cursor-pointer" key={c.id}>
+                      <div>
+                        <img
+                          src={c.image.mobile}
+                          alt={c.cartname}
+                          className="w-12 h-12 rounded-md"
+                        />
+                      </div>
+                      <div className="pl-2 w-full flex justify-between items-center ">
+                        <div>
+                          <span className="flex flex-1 text-black font-bold">
+                            {c.cartname}
+                          </span>
+                          <span className="text-black/40 text-sm font-bold">
+                            ${c.price.toLocaleString("en-US")}
+                          </span>
+                        </div>
+                        <div className="self-start pt-1 text-black/60">
+                          x{c.quantity}
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                : null}
+            </div>
             <div>
-              <div className="space-y-2">
-                <div className="flex justify-between">
+              <div className="">
+                <div className="flex justify-between mb-2">
                   <span className="font-semibold text-black/60">TOTAL</span>{" "}
-                  <span className="font-semibold text-[16px] font-medium">
-                    {`$ ${cart
-                      .reduce((acc, cur) => acc + cur.price, 0)
-                      .toLocaleString("en-US")}`}
+                  <span className="font-bold text-[16px]">
+                    ${total.toLocaleString("en-US")}
                   </span>
                 </div>
-                <div className="flex justify-between">
+                <div className="flex justify-between mb-2">
                   <span className="font-semibold text-black/60">SHIPPING</span>{" "}
-                  <span className="font-medium lg:font-bold">5000</span>
+                  <span className="font-bold text-[16px]">${shipping}</span>
                 </div>
-                <div className="flex justify-between">
-                  <span className="font-semibold text-black/60">
-                    VAT(INCLUDED)
-                  </span>{" "}
-                  <span className="font-medium lg:font-bold">5000</span>
+                <div className="flex justify-between mb-2">
+                  <span className="font-bold text-black/60">VAT(INCLUDED)</span>{" "}
+                  <span className="font-bold">${vat.toFixed(2)}</span>
                 </div>
-                <div className="flex justify-between">
-                  <span className="font-semibold text-black/60">
-                    GRAND TOTAL
-                  </span>{" "}
-                  <span className="font-medium lg:font-bold text-orange">
-                    5000
+                <div className="flex justify-between mt-6">
+                  <span className="font-bold text-black/60">GRAND TOTAL</span>{" "}
+                  <span className="font-bold text-orange">
+                    ${total + shipping + vat}
                   </span>
                 </div>
               </div>

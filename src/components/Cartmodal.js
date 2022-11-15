@@ -20,7 +20,7 @@ function Cartmodal() {
     >
       <div className="max-w-screen-lg mx-auto lg:relative">
         <div
-          className="rounded-md p-4 xs:p-5 relative top-[100px] bg-white w-full xs:w-[300px] mx-auto md:absolute md:top-[100px] md:right-10 md:w-[350px] lg:right-0"
+          className="rounded-md p-4 xs:p-5 relative top-[100px] bg-white w-full xs:w-[310px] mx-auto md:absolute md:top-[100px] md:right-10 md:w-[360px] lg:right-0"
           onClick={(e) => e.stopPropagation()}
         >
           <div className="flex justify-between border border-solid border-black/40 pb-2 border-x-0 border-t-0 border-b-1">
@@ -34,7 +34,7 @@ function Cartmodal() {
               </span>
             ) : null}
           </div>
-          <div className="max-h-48 md:h-auto overflow-y-auto pt-3">
+          <div className=" md:h-auto overflow-y-auto pt-3">
             {cart.length > 0 ? (
               cart.map((x) => (
                 <div className="mb-3 flex" key={x.id}>

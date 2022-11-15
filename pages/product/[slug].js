@@ -26,11 +26,11 @@ function Product({ product }) {
         <Head>
           <title>{`Audiophile | ${singleproduct.name}`}</title>
         </Head>
-        <span className="cursor-pointer my-14 " onClick={() => router.back()}>
+        <span className="cursor-pointer my-14" onClick={() => router.back()}>
           Go back
         </span>
-        <div className="flex flex-col sm:flex-row justify-between gap-x- mt-3 md:mt-8 lg:mt-10">
-          <div className="sm:basis-[40%]">
+        <div className="flex flex-col sm:flex-row justify-between lg:gap-x-4 mt-3 md:mt-8 lg:mt-10">
+          <div className="sm:basis-[40%] lg:basis-[50%]">
             <img
               className="w-full"
               src={
@@ -42,7 +42,7 @@ function Product({ product }) {
               }
             />
           </div>
-          <div className="flex items-center sm:basis-[60%] sm:pl-12 lg:pl-20 justify-center">
+          <div className="flex items-center sm:basis-[60%] lg:basis-[50%] sm:pl-12 lg:pl-16 justify-center">
             <div className="">
               <div className="my-3">
                 {singleproduct.new ? (
@@ -54,11 +54,11 @@ function Product({ product }) {
               <h1 className="text-[29px] sm:text-3xl uppercase font-extrabold tracking-wide mb-4 sm:mb-6 lg:mb-7  md:text-4xl lg:text-5xl">
                 {singleproduct.name}
               </h1>
-              <p className="mb-5 sm:mb-6">{singleproduct.description}</p>
-              <h4 className="mb-5 sm:mb-6 lg:text-[18px]">
+              <p className="mb-5 sm:mb-7">{singleproduct.description}</p>
+              <h4 className="mb-5 sm:mb-8 lg:text-[18px]">
                 ${singleproduct.price.toLocaleString("en-US")}
               </h4>
-              <div className="flex space-x-4">
+              <div className="flex space-x-4 lg:mt-8">
                 <div className="flex bg-gray  justify-center items-center py-3 px-4">
                   <span
                     className="font-bold text-black/40 cursor-pointer"
@@ -101,6 +101,7 @@ function Product({ product }) {
                           quantity,
                         },
                       });
+                      setquantity(1);
                     }
                   }}
                   className="cursor-pointer uppercase bg-orange text-white text-sm font-semibold outline-none border-0 px-4 py-3 md:px-6 lg:px-8 tracking-[1px]"
@@ -198,7 +199,7 @@ function Product({ product }) {
                   loading="lazy"
                   className="w-full object-cover rounded-md"
                 />
-                <h4 className="text-center mt-6 mb-4 text-lg uppercase">
+                <h4 className="text-center mt-6 text-lg uppercase">
                   {other.name}
                 </h4>
                 {/* <Link href={`/product/${other.slug}`}>

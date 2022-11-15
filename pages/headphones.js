@@ -10,10 +10,10 @@ function headphones() {
   return (
     <>
       <Banner text="HEADPHONES" />
-      <div className="px-5 py-1 xs:px-6 md:px-10 lg:px-5 pb-5 md:pb-7">
-        <div className="max-w-screen-lg mx-auto pt-6 pb-7 space-y-5 lg:pb-20">
+      <section className="px-5 py-1 xs:px-6 md:px-10 lg:px-5 pb-7 md:pb-8">
+        <div className="max-w-screen-lg mx-auto pt-6 pb-7 space-y-8 lg:pb-20">
           <div className="lg:flex py-4 md:py-8 lg:py-10">
-            <div className="lg:basis-[47.5%]">
+            <div className="lg:basis-[50%]">
               <img
                 src={
                   Viewport < 640
@@ -26,7 +26,7 @@ function headphones() {
                 alt="marktwo"
               />
             </div>
-            <div className="text-center px-2 sm:px-10 lg:my-auto lg:text-left lg:px-0 lg:pl-20 lg:basis-[47.5%]">
+            <div className="text-center px-2 sm:px-10 lg:my-auto lg:text-left lg:px-0 lg:pl-20 lg:basis-[50%]">
               <h3 className="text-3xl mt-4 mb-3 lg:text-4xl">
                 XX99 MARK II <br /> HEADPHONES
               </h3>
@@ -43,8 +43,8 @@ function headphones() {
               </Link>
             </div>
           </div>
-          <div className="lg:flex py-4 md:py-8 lg:py-10">
-            <div className="lg:basis-[47.5%]">
+          <div className="lg:flex py-4 md:py-8 lg:py-10  lg:gap-x-4">
+            <div className="lg:basis-[50%] ">
               <img
                 src={
                   Viewport < 640
@@ -57,7 +57,7 @@ function headphones() {
                 alt="markone"
               />
             </div>
-            <div className="text-center px-2 sm:px-10 lg:my-auto lg:text-left lg:px-0 lg:-order-1 lg:basis-[47.5%] lg:pr-20">
+            <div className="text-center px-2 sm:px-10 lg:my-auto lg:text-left lg:px-0 lg:-order-1 lg:basis-[50%] lg:pr-20">
               <h3 className="text-3xl mt-4 mb-3 lg:text-4xl">
                 XX99 MARK I <br /> HEADPHONES
               </h3>
@@ -76,7 +76,7 @@ function headphones() {
           </div>
 
           <div className="lg:flex py-4 pb-8 md:py-8 lg:py-10">
-            <div className="lg:basis-[47.5%]">
+            <div className="lg:basis-[50%]">
               <img
                 src={
                   Viewport < 640
@@ -89,7 +89,7 @@ function headphones() {
                 alt="markthree.jpg"
               />
             </div>
-            <div className="text-center px-2 sm:px-10 lg:my-auto lg:text-left lg:px-0 lg:pl-20 lg:basis-[47.5%]">
+            <div className="text-center px-2 sm:px-10 lg:my-auto lg:text-left lg:px-0 lg:pl-20 lg:basis-[50%]">
               <h3 className="text-3xl mt-4 mb-3 lg:text-4xl">
                 XX59 <br /> HEADPHONES
               </h3>
@@ -107,7 +107,7 @@ function headphones() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 }
