@@ -28,7 +28,7 @@ function Productcategories() {
               truly remarkable sound.
             </p>
             <Link href="/product/zx9-speaker">
-              <a className="bg-black text-sm text-white py-3 px-5 tracking-[1px] font-semibold md:px-6 lg:px-8">
+              <a className="bg-black text-sm text-white py-3 px-5 tracking-[1px] font-semibold md:px-6 lg:px-8 hover:bg-white hover:text-black transition-all duration-300">
                 SEE PRODUCT
               </a>
             </Link>
@@ -39,7 +39,7 @@ function Productcategories() {
             ZX7 SPEAKER
           </h3>
           <Link href="/product/zx7-speaker">
-            <a className="bg-transparent border text-sm hover:bg-black/10 text-black border-black border-solid font-semibold py-3 px-5 tracking-[1px]  md:px-6 md:px-6 lg:px-8">
+            <a className="duration-300 transition-all hover:bg-black hover:text-white bg-transparent border text-sm hover:bg-black/10 text-black border-black border-solid font-semibold py-3 px-5 tracking-[1px]  md:px-6 md:px-6 lg:px-8">
               SEE PRODUCT
             </a>
           </Link>
@@ -56,7 +56,7 @@ function Productcategories() {
               YX1 EARPHONES
             </h3>
             <Link href="/product/yx1-earphones">
-              <a className="bg-transparent  text-sm border text-black hover:bg-black/10 border-black border-solid font-semibold py-3 px-5 tracking-[1px] md:px-6 lg:px-8">
+              <a className="duration-300 transition-all hover:bg-black hover:text-white bg-transparent text-sm border text-black hover:bg-black/10 border-black border-solid font-semibold py-3 px-5 tracking-[1px] md:px-6 lg:px-8">
                 SEE PRODUCT
               </a>
             </Link>

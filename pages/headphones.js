@@ -37,7 +37,7 @@ function headphones() {
                 sound.
               </p>
               <Link href="/product/xx99-mark-two-headphones">
-                <a className="px-6 py-3 mt-4 text-sm bg-orange tracking-[1px] text-white font-bold ">
+                <a className="px-6 py-3 mt-4 text-sm bg-orange tracking-[1px] text-white font-semibold ">
                   SEE PRODUCT
                 </a>
               </Link>
@@ -68,7 +68,7 @@ function headphones() {
                 the go
               </p>
               <Link href="/product/xx99-mark-one-headphones">
-                <a className="px-6 py-3 mt-4 text-sm bg-orange tracking-[1px] text-white font-bold ">
+                <a className="px-6 py-3 mt-4 text-sm bg-orange tracking-[1px] text-white font-semibold ">
                   SEE PRODUCT
                 </a>
               </Link>
@@ -100,7 +100,7 @@ function headphones() {
                 home or on the move.
               </p>
               <Link href="/product/xx59-headphones">
-                <a className="px-6 py-3 mt-4 text-sm bg-orange tracking-[1px] text-white font-bold ">
+                <a className="px-6 py-3 mt-4 text-sm bg-orange tracking-[1px] text-white font-semibold ">
                   SEE PRODUCT
                 </a>
               </Link>

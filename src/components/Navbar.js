@@ -54,18 +54,16 @@ function Navbar() {
             <img
               src="/assets/shared/desktop/logo.svg"
               alt="audiophile logo"
-              width={130}
+              className="w-[130px] lg:w-[150px]"
             />
           </a>
         </Link>
-        <ul className="hidden lg:flex lg:space-x-9">
+        <ul className="hidden lg:flex lg:space-x-8">
           {links.map((link) => (
             <li key={link.name}>
               <Link href={link.path}>
                 <a
-                  className={`uppercase text-xs hover:text-orange tracking-[1.5px] lg:text-sm ${
-                    router.pathname === link.path ? "text-orange" : "text-white"
-                  }`}
+                  className={`transnition-all duration-300 uppercase text-xs text-white hover:text-orange tracking-[1.5px] lg:text-[15px]`}
                 >
                   {link.name}
                 </a>

@@ -27,11 +27,11 @@ function Footer() {
     <footer className="bg-black px-5 xs:px-6 md:px-10 md:pb-6 lg:px-5 ">
       <div className="mx-auto max-w-screen-lg text-white relative text-center pt-11 md:text-left">
         <span className="relative">
-          <span className="absolute w-full h-[3px] bg-orange top-[-47px]" />
+          <span className="absolute w-full h-[3px] bg-orange top-[-47px] lg:top-[-49.5px]" />
           <img
             src="/assets/shared/desktop/logo.svg"
             alt="audiophile logo"
-            width={115}
+            className="w-[115px] lg:w-[130px]"
           />
         </span>
 
@@ -41,7 +41,7 @@ function Footer() {
               <li key={link.name} className="mb-5">
                 <Link href={link.path}>
                   <a
-                    className={`uppercase text-[13px] hover:text-orange tracking-[1.5px] lg:text-sm ${
+                    className={`transnition-all duration-300 uppercase text-[13px] hover:text-orange tracking-[1.8px] lg:text-sm ${
                       router.pathname === link.path
                         ? "text-orange"
                         : "text-white"

@@ -20,10 +20,10 @@ function Cartmodal() {
     >
       <div className="max-w-screen-lg mx-auto lg:relative">
         <div
-          className="rounded-md p-4 xs:p-5 relative top-[100px] bg-white w-full xs:w-[310px] mx-auto md:absolute md:top-[100px] md:right-10 md:w-[360px] lg:right-0"
+          className="rounded-md p-4 xs:p-5 relative top-[110px] bg-white w-full max-w-[400px] mx-auto md:absolute md:top-[100px] md:right-10 md:w-[380px] lg:right-0"
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="flex justify-between border border-solid border-black/40 pb-2 border-x-0 border-t-0 border-b-1">
+          <div className="flex justify-between border border-solid border-black/10 pb-3 border-x-0 border-t-0 border-b-1">
             <span className="font-bold">Cart ({cart.length})</span>{" "}
             {cart.length > 0 ? (
               <span
@@ -34,18 +34,18 @@ function Cartmodal() {
               </span>
             ) : null}
           </div>
-          <div className=" md:h-auto overflow-y-auto pt-3">
+          <div className=" md:h-auto overflow-y-auto pt-6">
             {cart.length > 0 ? (
               cart.map((x) => (
-                <div className="mb-3 flex" key={x.id}>
+                <div className="mb-4 flex" key={x.id}>
                   <div>
                     <img
                       src={x.image.mobile}
                       alt={x.cartname}
-                      className="w-12 h-12 rounded-md"
+                      className="w-14 h-14 rounded-md"
                     />
                   </div>
-                  <div className="pl-2 w-full flex justify-between items-center">
+                  <div className="pl-3 w-full flex justify-between items-center">
                     <div>
                       <span className="flex flex-1 text-black font-bold">
                         {x.cartname}

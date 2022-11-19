@@ -10,7 +10,7 @@ function Checkout() {
 
   const total = cart.reduce((acc, cur) => acc + cur.price * cur.quantity, 0);
   const vat = (20 / 100) * total;
-  const [shipping] = useState(cart.length > 0 ? 50 : 0);
+  const shipping = 50;
 
   const [Name, SetName] = useState("");
 
@@ -155,16 +155,16 @@ function Checkout() {
 
         <div className="space-y-5 sm:gap-5 sm:space-y-0 sm:grid sm:grid-cols-1 lg:grid-cols-3">
           <form
-            className="lg:col-span-2 bg-white rounded-md px-5 lg:px-11 pt-5 pb-3"
+            className="lg:col-span-2 bg-white rounded-md px-[22px] lg:px-11 pt-5 pb-3"
             onSubmit={handleformsubmit}
           >
-            <h3 className="pb-6 text-3xl lg:text-4xl">CHECKOUT</h3>
-            <div>
+            <h3 className="pb-6 text-2xl lg:text-3xl">CHECKOUT</h3>
+            <div className="space-y-8 lg:space-y-1">
               <div className="lg:pb-12">
-                <p className="text-lightorange font-medium mb-4 lg:font-bold">
+                <p className="text-lightorange font-semibold tracking-[1px] mb-5 lg:font-bold">
                   BILLING DETAILS
                 </p>
-                <div className=" gap-4 grid grid-cols-1 lg:grid-cols-2">
+                <div className="gap-4 grid grid-cols-1 lg:grid-cols-2">
                   <div>
                     <label
                       htmlFor="name"
@@ -225,7 +225,7 @@ function Checkout() {
               </div>
 
               <div>
-                <p className="text-lightorange font-medium mb-4 lg:font-bold">
+                <p className="text-lightorange font-semibold tracking-[1px] mb-5 lg:font-bold">
                   SHIPPING INFO
                 </p>
                 <div className="gap-4 grid grid-cols-1 lg:grid-cols-2">
@@ -308,20 +308,20 @@ function Checkout() {
               </div>
             </div>
           </form>
-          <div className="bg-white rounded-md h-min w-full p-4 lg:px-7 lg:py-6 font-bold">
-            <h3 className="text-[19px] pb-6">SUMMARY</h3>
+          <div className="bg-white rounded-md h-min w-full py-6 px-[22px] lg:px-7 lg:py-6 font-bold">
+            <h3 className="text-2xl pb-6">SUMMARY</h3>
             <div className="mb-5">
               {cart.length > 0
                 ? cart.map((c) => (
-                    <div className="mb-3 flex cursor-pointer" key={c.id}>
+                    <div className="mb-4 flex cursor-pointer" key={c.id}>
                       <div>
                         <img
                           src={c.image.mobile}
                           alt={c.cartname}
-                          className="w-12 h-12 rounded-md"
+                          className="w-14 h-14 rounded-md"
                         />
                       </div>
-                      <div className="pl-2 w-full flex justify-between items-center ">
+                      <div className="pl-3 w-full flex justify-between items-center ">
                         <div>
                           <span className="flex flex-1 text-black font-bold">
                             {c.cartname}
@@ -346,27 +346,42 @@ function Checkout() {
                     ${total.toLocaleString("en-US")}
                   </span>
                 </div>
+                {cart.length > 0 && (
+                  <div className="flex justify-between mb-2">
+                    <span className="font-semibold text-black/60">
+                      SHIPPING
+                    </span>{" "}
+                    <span className="font-bold text-[16px]">${shipping}</span>
+                  </div>
+                )}
                 <div className="flex justify-between mb-2">
-                  <span className="font-semibold text-black/60">SHIPPING</span>{" "}
-                  <span className="font-bold text-[16px]">${shipping}</span>
-                </div>
-                <div className="flex justify-between mb-2">
-                  <span className="font-bold text-black/60">VAT(INCLUDED)</span>{" "}
-                  <span className="font-bold">${vat.toFixed(2)}</span>
+                  <span className="font-semibold text-black/60">
+                    VAT(INCLUDED)
+                  </span>{" "}
+                  <span className="font-bold">
+                    ${Math.round(vat).toLocaleString("en-US")}
+                  </span>
                 </div>
                 <div className="flex justify-between mt-6">
-                  <span className="font-bold text-black/60">GRAND TOTAL</span>{" "}
+                  <span className="font-semibold text-black/60">
+                    GRAND TOTAL
+                  </span>{" "}
                   <span className="font-bold text-orange">
-                    ${total + shipping + vat}
+                    $
+                    {cart.length > 0
+                      ? Math.round(total + shipping + vat).toLocaleString(
+                          "en-US"
+                        )
+                      : 0}
                   </span>
                 </div>
               </div>
               <button
                 type="submit"
                 onClick={handleformsubmit}
-                className=" mt-6 p-4 uppercase bg-orange w-full text-white border-0 outline-0 cursor-pointer"
+                className="font-semibold tracking-[1px] mt-6 p-4 uppercase bg-orange w-full text-white border-0 outline-0 cursor-pointer"
               >
-                continue and pay
+                continue & pay
               </button>
             </div>
           </div>

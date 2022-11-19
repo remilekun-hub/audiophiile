@@ -35,7 +35,7 @@ function speakers() {
                 studio use.
               </p>
               <Link href="/product/xx99-mark-two-headphones">
-                <a className="px-6 py-3 mt-4 text-sm bg-orange tracking-[1px] text-white font-bold ">
+                <a className="px-6 py-3 mt-4 text-sm bg-orange tracking-[1px] text-white font-semibold ">
                   SEE PRODUCT
                 </a>
               </Link>
@@ -66,7 +66,7 @@ function speakers() {
                 practical audio setups.
               </p>
               <Link href="/product/xx99-mark-one-headphones">
-                <a className="px-6 py-3 mt-4 text-sm bg-orange tracking-[1px] text-white font-bold ">
+                <a className="px-6 py-3 mt-4 text-sm bg-orange tracking-[1px] text-white font-semibold ">
                   SEE PRODUCT
                 </a>
               </Link>

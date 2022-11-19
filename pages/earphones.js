@@ -35,7 +35,7 @@ function earphones() {
                 noise cancellation feature.
               </p>
               <Link href="/product/yx1-earphones">
-                <a className="px-6 py-3 mt-4 text-sm bg-orange tracking-[1px] text-white font-bold ">
+                <a className="px-6 py-3 mt-4 text-sm bg-orange tracking-[1px] text-white font-semibold ">
                   SEE PRODUCT
                 </a>
               </Link>
