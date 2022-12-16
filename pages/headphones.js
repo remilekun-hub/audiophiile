@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Banner from "../src/components/Banner";
-import { getprodcategory } from "../lib/productcategory";
-import { Useviewwidth, useviewwidth } from "../lib/useviewwidth";
+import { Useviewwidth } from "../lib/useviewwidth";
 import Link from "next/link";
 
 function headphones() {
