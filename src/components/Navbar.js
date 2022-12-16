@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Usemycontext } from "./context/Context";
@@ -25,29 +25,49 @@ function Navbar() {
       path: "/earphones",
     },
   ];
+  useEffect(() => {
+    const header = document.getElementById("header");
+    window.addEventListener("scroll", () => {
+      if (scrollY > 10) {
+        header.classList.add("headerblur");
+      } else {
+        header.classList.remove("headerblur");
+      }
+    });
+  }, []);
 
   return (
     <header
-      className={`w-full  h-full sticky top-0 z-[30] px-5 xs:px-6 md:px-10 lg:px-5 ${
-        router.pathname === "/" ? "bg-black/[0.9]" : "bg-black"
+      id="header"
+      className={`w-full px-5 xs:px-6 md:px-10 lg:px-5 ${
+        router.pathname === "/"
+          ? " fixed top-0 z-[30]"
+          : "sticky top-0 z-[30] bg-black"
       }`}
     >
       <nav
         className={`mx-auto
         max-w-screen-lg
         flex
+        items-center
         justify-between
-        py-6
+        h-[75px]
       ${
         router.pathname === "/" &&
-        "border border-t-0 border-solid border-x-0 border-gray/50"
+        "border border-t-0 border-solid border-x-0 border-gray/50 backdrop-blur-lg"
       }`}
       >
         <div
           className="border-none cursor-pointer lg:hidden"
           role="menu button"
         >
-          <img src="/assets/shared/tablet/hamburger.svg" alt="hamburger" />
+          <img
+            src="/assets/shared/tablet/hamburger.svg"
+            alt="hamburger"
+            onClick={() => {
+              dispatch({ type: "TOGGLE_MOBILE_NAV" });
+            }}
+          />
         </div>
         <Link href="/">
           <a className="md:flex-1 md:justify-start md:ml-9 lg:ml-0 lg:grow-0">

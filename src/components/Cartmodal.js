@@ -18,9 +18,9 @@ function Cartmodal() {
         document.body.classList.remove("overflow-y-hidden");
       }}
     >
-      <div className="max-w-screen-lg mx-auto lg:relative">
+      <div className="max-w-screen-lg h-screen mx-auto lg:relative">
         <div
-          className="rounded-md p-4 xs:p-5 relative top-[110px] bg-white w-full max-w-[400px] mx-auto md:absolute md:top-[100px] md:right-10 md:w-[380px] lg:right-0"
+          className="rounded-md p-4 xs:p-5 relative top-[20%] bg-white w-full max-w-[400px] mx-auto md:absolute md:top-[100px] md:right-10 md:w-[380px] lg:right-0"
           onClick={(e) => e.stopPropagation()}
         >
           <div className="flex justify-between border border-solid border-black/10 pb-3 border-x-0 border-t-0 border-b-1">
@@ -34,7 +34,7 @@ function Cartmodal() {
               </span>
             ) : null}
           </div>
-          <div className=" md:h-auto overflow-y-auto pt-6">
+          <div className=" md:h-auto overflow-y-auto pt-2">
             {cart.length > 0 ? (
               cart.map((x) => (
                 <div className="mb-4 flex" key={x.id}>
@@ -120,7 +120,7 @@ function Cartmodal() {
               <input
                 type="button"
                 value="CHECKOUT"
-                className={`bg-orange font-bold p-3 w-full text-white outline-none border-none cursor-pointer tracking-[1px] disabled:bg-black`}
+                className={`bg-orange font-bold p-5 w-full text-white outline-none border-none cursor-pointer tracking-[1px] disabled:bg-black`}
                 onClick={() => {
                   router.push("/checkout");
                   dispatch({ type: "TOGGLE_CART_MODAL" });

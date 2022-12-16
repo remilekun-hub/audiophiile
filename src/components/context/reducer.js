@@ -5,6 +5,16 @@ export const statereducer = (state, action) => {
         ...state,
         modalstate: { cartmodal: !state.modalstate.cartmodal },
       };
+    case "TOGGLE_THANKYOU_MODAL":
+      return {
+        ...state,
+        modalstate: { thankyou: !state.modalstate.thankyou },
+      };
+    case "TOGGLE_MOBILE_NAV":
+      return {
+        ...state,
+        modalstate: { mobilenav: !state.modalstate.mobilenav },
+      };
     case "CREATE_CART":
       return {
         ...state,

@@ -1,10 +1,11 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useRef, useState } from "react";
-import { usestripe } from "../lib/usestripecheckout";
 import { Usemycontext } from "../src/components/context/Context";
-
+import { PaystackButton } from "react-paystack";
+import { usePaystackPayment } from "react-paystack";
 function Checkout() {
   const {
+    dispatch,
     store: { cart },
   } = Usemycontext();
 
@@ -23,8 +24,6 @@ function Checkout() {
   const [validate, setvalidate] = useState(false);
   const router = useRouter();
 
-  console.log({ cart });
-
   const checkname = () => {
     const nameEl = document.getElementById("name");
     if (Name === "") {
@@ -35,7 +34,7 @@ function Checkout() {
         nameEl.nextElementSibling.innerHTML = "";
         nameEl.nextElementSibling.classList.remove("invalid");
         return clearTimeout(timeout);
-      }, 5000);
+      }, 3000);
     } else {
       nameEl.nextElementSibling.classList.remove("invalid");
       setvalidate(true);
@@ -52,7 +51,7 @@ function Checkout() {
         phoneEl.nextElementSibling.innerHTML = "";
         phoneEl.nextElementSibling.classList.remove("invalid");
         return clearTimeout(timeout);
-      }, 5000);
+      }, 3000);
     } else if (phoneEl.value.length < 11) {
       phoneEl.nextElementSibling.classList.add("invalid");
       phoneEl.nextElementSibling.innerHTML = "phone number is not complete";
@@ -61,7 +60,7 @@ function Checkout() {
         phoneEl.nextElementSibling.innerHTML = "";
         phoneEl.nextElementSibling.classList.remove("invalid");
         return clearTimeout(timeout);
-      }, 5000);
+      }, 3000);
     } else if (isNaN(phoneEl.value)) {
       phoneEl.nextElementSibling.classList.add("invalid");
       phoneEl.nextElementSibling.innerHTML = "input is not a number";
@@ -70,7 +69,7 @@ function Checkout() {
         phoneEl.nextElementSibling.innerHTML = "";
         phoneEl.nextElementSibling.classList.remove("invalid");
         return clearTimeout(timeout);
-      }, 5000);
+      }, 3000);
     } else {
       phoneEl.nextElementSibling.classList.remove("invalid");
       setvalidate(true);
@@ -87,7 +86,7 @@ function Checkout() {
         email.nextElementSibling.innerHTML = "";
         email.nextElementSibling.classList.remove("invalid");
         return clearTimeout(timeout);
-      }, 5000);
+      }, 3000);
     } else if (!validateEmail(Email)) {
       email.nextElementSibling.classList.add("invalid");
       email.nextElementSibling.innerHTML = "invalid email";
@@ -96,7 +95,7 @@ function Checkout() {
         email.nextElementSibling.innerHTML = "";
         email.nextElementSibling.classList.remove("invalid");
         return clearTimeout(timeout);
-      }, 5000);
+      }, 3000);
     } else {
       email.nextElementSibling.classList.remove("invalid");
       setvalidate(true);
@@ -112,6 +111,8 @@ function Checkout() {
   const checkotherinput = () => {
     const addy = document.getElementById("address");
     const zip = document.getElementById("zipcode");
+    const city = document.getElementById("city");
+    const country = document.getElementById("country");
     if (addy.value === "") {
       addy.nextElementSibling.classList.add("invalid");
       addy.nextElementSibling.innerHTML = " you need to enter a valid address";
@@ -120,27 +121,75 @@ function Checkout() {
         addy.nextElementSibling.innerHTML = "";
         addy.nextElementSibling.classList.remove("invalid");
         return clearTimeout(timeout);
-      }, 5000);
+      }, 3000);
     }
     if (zip.value === "") {
       zip.nextElementSibling.classList.add("invalid");
-      zip.nextElementSibling.innerHTML =
-        " you need to enter your address zip code";
+      zip.nextElementSibling.innerHTML = "your address zip code is required";
       setvalidate(false);
       const timeout = setTimeout(() => {
         zip.nextElementSibling.innerHTML = "";
         zip.nextElementSibling.classList.remove("invalid");
         return clearTimeout(timeout);
-      }, 5000);
+      }, 3000);
     } else {
       zip.nextElementSibling.classList.remove("invalid");
       setvalidate(true);
     }
+
+    if (city.value === "") {
+      city.nextElementSibling.classList.add("invalid");
+      city.nextElementSibling.innerHTML = " your city is required";
+      setvalidate(false);
+      const timeout = setTimeout(() => {
+        city.nextElementSibling.innerHTML = "";
+        city.nextElementSibling.classList.remove("invalid");
+        return clearTimeout(timeout);
+      }, 3000);
+    } else {
+      city.nextElementSibling.classList.remove("invalid");
+      setvalidate(true);
+    }
+
+    if (country.value === "") {
+      country.nextElementSibling.classList.add("invalid");
+      country.nextElementSibling.innerHTML = " your country is required";
+      setvalidate(false);
+      const timeout = setTimeout(() => {
+        country.nextElementSibling.innerHTML = "";
+        country.nextElementSibling.classList.remove("invalid");
+        return clearTimeout(timeout);
+      }, 3000);
+    } else {
+      city.nextElementSibling.classList.remove("invalid");
+      setvalidate(true);
+    }
   };
 
-  const handleformsubmit = (e) => {
-    e.preventDefault();
-    usestripe();
+  const gt = Math.round(total + shipping + vat);
+  const pay = gt * 740 * 100;
+  const config = {
+    reference: new Date().getTime().toString(),
+    email: Email,
+    amount: pay, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
+    publicKey: process.env.PAYSTACK_KEY,
+  };
+
+  const initPayment = usePaystackPayment(config);
+
+  const onSuccess = () => {
+    setTimeout(() => dispatch({ type: "TOGGLE_THANKYOU_MODAL" }), 1500);
+    dis;
+  };
+  const handleformsubmit = async (e) => {
+    if (cart.length === 0) return;
+    checkname();
+    checkphone();
+    isvalid();
+    checkotherinput();
+    if (Name && validate) {
+      initPayment(onSuccess);
+    }
   };
 
   return (

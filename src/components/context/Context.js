@@ -8,6 +8,8 @@ export const Mycontext = ({ children }) => {
     cart: [],
     modalstate: {
       cartmodal: false,
+      mobilenav: false,
+      thankyou: true,
     },
   };
 

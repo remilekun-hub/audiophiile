@@ -6,29 +6,14 @@ import Button from "./Button";
 function Hero() {
   const Viewport = Useviewwidth;
   return (
-    // <section className="h-screen bg-black w-screen bg-[url('../public/home/mobile/image-header.jpg')] md:bg-[url('../public/home/tablet/image-header.jpg')] lg:bg-[url('../public/home/desktop/image-hero.jpg')] bg-no-repeat bg-center">
-    //   <div className=" mx-auto max-w-screen-lg h-full flex items-center justify-center text-center lg:justify-start lg:text-left">
-    //     <div className="max-w-sm">
-    //       <p className="tracking-[8px] text-gray/50 mb-6 font-normal">
-    //         NEW PRODUCT
-    //       </p>
-    //       <h1 className="text-gray mb-6 text-3xl md:text-5xl tracking-wider">
-    //         XX99 MARK II <br /> HEADPHONE
-    //       </h1>
-    //       <p className="mb-12 text-gray">
-    //         Experience natural, lifelike audio and exceptional build quality
-    //         made for the passionate music enthusiast.
-    //       </p>
-    //       <Button href="/product/xx99-mark-two-headphones" name="see product" />
-    //     </div>
-    //   </div>
-    // </section>
-    <section className="h-screen w-full bg-[url('../public/home/mobile/image-header.jpg')] md:bg-[url('../public/home/tablet/image-header.jpg')] lg:bg-[url('../public/home/desktop/image-hero.jpg')] bg-cover bg-no-repeat bg-center">
+    <section className="relative h-screen w-full lg:px-5 bg-[url('../public/home/mobile/image-header.jpg')] md:bg-[url('../public/home/tablet/image-header.jpg')] lg:bg-[url('../public/home/desktop/image-hero.jpg')] bg-cover bg-no-repeat bg-center">
       <div className=" mx-auto max-w-screen-lg h-full w-full flex items-center justify-center text-center lg:justify-start lg:text-left">
-        <div className="max-w-sm space-y-6">
-          <p className="tracking-[8px] text-gray/50 font-normal">NEW PRODUCT</p>
+        <div className="max-w-sm pt-10 px-4 md:px-0">
+          <p className="tracking-[4px] text-gray/50 font-normal mb-3">
+            NEW PRODUCT
+          </p>
 
-          <h1 className="text-gray text-3xl md:text-5xl tracking-wider">
+          <h1 className="text-gray text-3xl md:text-5xl tracking-wider mb-3">
             XX99 MARK II <br /> HEADPHONE
           </h1>
 
@@ -36,7 +21,12 @@ function Hero() {
             Experience natural, lifelike audio and exceptional build quality
             made for the passionate music enthusiast.
           </p>
-          <Button href="/product/xx99-mark-two-headphones" name="see product" />
+          <div className="mt-7">
+            <Button
+              href="/product/xx99-mark-two-headphones"
+              name="see product"
+            />
+          </div>
         </div>
       </div>
     </section>
