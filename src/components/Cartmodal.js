@@ -34,7 +34,7 @@ function Cartmodal() {
               </span>
             ) : null}
           </div>
-          <div className=" md:h-auto overflow-y-auto pt-2">
+          <div className=" max-h-[250px] overflow-y-auto pt-2">
             {cart.length > 0 ? (
               cart.map((x) => (
                 <div className="mb-4 flex" key={x.id}>
@@ -57,7 +57,7 @@ function Cartmodal() {
                     <div className="flex bg-gray  justify-center items-center p-2">
                       {x.quantity === 1 ? (
                         <span
-                          className="font-bold text-black/40 cursor-pointer mt-1"
+                          className="font-bold text-black/40 cursor-pointer mt-1 px-[3px]"
                           aria-roledescription="button to remove item from cart"
                           role="remove button"
                           onClick={() =>
@@ -80,7 +80,7 @@ function Cartmodal() {
                         </span>
                       ) : (
                         <span
-                          className="font-bold text-black/40 cursor-pointer"
+                          className="font-bold text-black/40 cursor-pointer px-[3px]"
                           aria-roledescription="button to decrease item quantity"
                           role="decrease quantity button"
                           onClick={() =>
@@ -95,7 +95,7 @@ function Cartmodal() {
                       )}
                       <span className="font-bold px-4">{x.quantity}</span>
                       <span
-                        className="font-bold text-black/40 cursor-pointer"
+                        className="font-bold text-black/40 cursor-pointer px-[3px]"
                         aria-roledescription="button to increase item quantity"
                         role="increase quantity button"
                         onClick={() =>
@@ -120,7 +120,7 @@ function Cartmodal() {
               <input
                 type="button"
                 value="CHECKOUT"
-                className={`bg-orange font-bold p-5 w-full text-white outline-none border-none cursor-pointer tracking-[1px] disabled:bg-black`}
+                className={`bg-orange font-sans text-[16px] font-semibold p-3 w-full text-white outline-none border-none cursor-pointer tracking-[1px] disabled:bg-black`}
                 onClick={() => {
                   router.push("/checkout");
                   dispatch({ type: "TOGGLE_CART_MODAL" });

@@ -15,8 +15,6 @@ function Product({ product }) {
     store: { cart },
   } = Usemycontext();
 
-  console.log({ cart, singleproduct });
-
   const [quantity, setquantity] = useState(1);
   const Viewport = Useviewwidth();
 
@@ -24,7 +22,7 @@ function Product({ product }) {
     <section className="px-5 xs:px-6 md:px-10 lg:px-5">
       <div className="max-w-screen-lg mx-auto py-8">
         <Head>
-          <title>{`Audiophile | ${singleproduct.name}`}</title>
+          <title>{`Audiophile - ${singleproduct.name}`}</title>
         </Head>
         <span className="cursor-pointer my-14" onClick={() => router.back()}>
           Go back

@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Audiophile</title>
+        <title>Audiophile: Audio web shop</title>
       </Head>
       <Hero />
       <Nav />

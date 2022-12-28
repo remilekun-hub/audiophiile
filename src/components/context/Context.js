@@ -9,7 +9,7 @@ export const Mycontext = ({ children }) => {
     modalstate: {
       cartmodal: false,
       mobilenav: false,
-      thankyou: true,
+      thankyou: false,
     },
   };
 

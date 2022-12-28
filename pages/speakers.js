@@ -2,11 +2,15 @@ import React from "react";
 import { Useviewwidth } from "../lib/useviewwidth";
 import Banner from "../src/components/Banner";
 import Link from "next/link";
+import Head from 'next/head';
 
 function speakers() {
   const Viewport = Useviewwidth();
   return (
     <>
+    <Head>
+        <title>Audiophile - Speakers</title>
+      </Head>
       <Banner text="speakers" />
       <section className="px-5 py-1 xs:px-6 md:px-10 lg:px-5 pb-7 md:pb-8">
         <div className="max-w-screen-lg mx-auto pt-6 pb-7 space-y-8 lg:pb-20">

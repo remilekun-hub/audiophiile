@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { Usemycontext } from "../src/components/context/Context";
-import { PaystackButton } from "react-paystack";
 import { usePaystackPayment } from "react-paystack";
+import Head from "next/head";
 function Checkout() {
   const {
     dispatch,
@@ -172,13 +172,13 @@ function Checkout() {
     reference: new Date().getTime().toString(),
     email: Email,
     amount: pay, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
-    publicKey: process.env.PAYSTACK_KEY,
+    publicKey: "pk_test_0c3a116a0fa608149eb11619efa4de7d38dc3d48",
   };
 
   const initPayment = usePaystackPayment(config);
 
   const onSuccess = () => {
-    setTimeout(() => dispatch({ type: "TOGGLE_THANKYOU_MODAL" }), 1500);
+    setTimeout(() => dispatch({ type: "TOGGLE_THANKYOU_MODAL" }), 1000);
     dis;
   };
   const handleformsubmit = async (e) => {
@@ -194,6 +194,9 @@ function Checkout() {
 
   return (
     <section className="px-5 xs:px-6 md:px-10 lg:px-5">
+      <Head>
+        <title>Audiophile - Checkout</title>
+      </Head>
       <div className="mx-auto max-w-screen-lg py-10 bg-lightgray">
         <div
           className="pb-6 lg:pb-8 cursor-pointer"
@@ -428,7 +431,7 @@ function Checkout() {
               <button
                 type="submit"
                 onClick={handleformsubmit}
-                className="font-semibold tracking-[1px] mt-6 p-4 uppercase bg-orange w-full text-white border-0 outline-0 cursor-pointer"
+                className="font-semibold text-[15px] font-sans tracking-[1px] mt-6 p-3 uppercase bg-orange w-full text-white border-0 outline-0 cursor-pointer"
               >
                 continue & pay
               </button>
