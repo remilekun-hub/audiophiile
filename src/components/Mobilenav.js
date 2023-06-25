@@ -14,7 +14,7 @@ function Mobilenav() {
         mobilenav ? "show" : null
       }`}
     >
-      <div className="flex flex-col h-full pt-[50px] w-full items-center space-y-[30px]">
+      <div className="flex flex-col h-full pt-[35px] w-full items-center space-y-[30px]">
         <div className="pb-[10px] bg-gray w-full flex flex-col items-center cursor-pointer rounded-[6px]">
           <img
             src="/assets/shared/desktop/imageheadphones.png"
